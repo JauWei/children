@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>兒童投資理財樂園 · Kids Money Academy</title>
+<link rel="icon" href="assets/logo.svg">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;800&family=Inter:ital,wght@0,400;0,500;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script type="text/babel" src="characters.jsx"></script>
+<script type="text/babel" src="widgets.jsx"></script>
+<script type="text/babel" src="trading.jsx"></script>
+<script type="text/babel" src="lessons.jsx"></script>
+
+<script type="text/babel">
+const CHAPTERS = [
+  { id: "home",  num: "",   emoji: "🏠", t: "首頁", en: "Home" },
+  { id: "ch1",   num: "01", emoji: "💰", t: "錢是什麼？", en: "What is Money?" },
+  { id: "ch2",   num: "02", emoji: "🤔", t: "需要 vs 想要", en: "Needs vs Wants" },
+  { id: "ch3",   num: "03", emoji: "🐷", t: "存錢與儲蓄", en: "Saving" },
+  { id: "ch4",   num: "04", emoji: "🍋", t: "供需與價格", en: "Supply & Demand" },
+  { id: "ch5",   num: "05", emoji: "🕰️", t: "通貨膨脹", en: "Inflation" },
+  { id: "ch6",   num: "06", emoji: "🏢", t: "公司與股票", en: "Companies & Stocks" },
+  { id: "ch7",   num: "07", emoji: "🎲", t: "風險與分散", en: "Risk & Diversify" },
+  { id: "ch8",   num: "08", emoji: "✨", t: "複利的魔法", en: "Compound Magic" },
+  { id: "ch9",   num: "09", emoji: "📈", t: "股票模擬", en: "Stock Sim" },
+  { id: "ch10",  num: "10", emoji: "🏆", t: "理財小測驗", en: "Final Quiz" },
+];
+
+const PAGES = {
+  home: () => null, // handled specially
+  ch1: Ch1, ch2: Ch2, ch3: Ch3, ch4: Ch4, ch5: Ch5,
+  ch6: Ch6, ch7: Ch7, ch8: Ch8, ch9: Ch9, ch10: Ch10,
+};
+
+function App() {
+  const [current, setCurrent] = React.useState(() => {
+    const h = (window.location.hash || "#home").replace("#", "");
+    return PAGES[h] !== undefined ? h : "home";
+  });
+  const [visited, setVisited] = React.useState(() => {
+    try { return JSON.parse(localStorage.getItem("kf_visited") || "[]"); } catch { return []; }
+  });
+  const contentRef = React.useRef(null);
+
+  const go = (id) => {
+    setCurrent(id);
+    window.location.hash = id;
+    if (!visited.includes(id)) {
+      const nv = [...visited, id];
+      setVisited(nv);
+      localStorage.setItem("kf_visited", JSON.stringify(nv));
+    }
+    if (contentRef.current) contentRef.current.scrollTop = 0;
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  React.useEffect(() => {
+    const onHash = () => {
+      const h = (window.location.hash || "#home").replace("#", "");
+      if (PAGES[h] !== undefined) setCurrent(h);
+    };
+    window.addEventListener("hashchange", onHash);
+    return () => window.removeEventListener("hashchange", onHash);
+  }, []);
+
+  const idx = CHAPTERS.findIndex(c => c.id === current);
+  const prev = idx > 0 ? CHAPTERS[idx - 1] : null;
+  const next = idx < CHAPTERS.length - 1 ? CHAPTERS[idx + 1] : null;
+
+  const totalChapters = CHAPTERS.length - 1; // exclude home
+  const visitedCount = visited.filter(v => v !== "home").length;
+  const progress = (visitedCount / totalChapters) * 100;
+
+  const PageComp = PAGES[current];
+
+  return (
+    <div className="app">
+      <aside className="sidebar">
+        <div className="sidebar-brand" onClick={() => go("home")}>
+          <div className="sidebar-brand-mark">🐑</div>
+          <div className="sidebar-brand-text">
+            <div className="sidebar-brand-title">理財樂園</div>
+            <div className="sidebar-brand-sub">Kids Money Academy</div>
+          </div>
+        </div>
+
+        <div className="sidebar-section-label">課程 · Lessons</div>
+
+        {CHAPTERS.map(c => (
+          <button key={c.id} className={`toc-item ${current === c.id ? "active" : ""}`} onClick={() => go(c.id)} data-screen-label={c.num ? `${c.num} ${c.t}` : c.t}>
+            <span className="toc-num">{c.num || "🏠"}</span>
+            <span className="toc-emoji">{c.emoji}</span>
+            <span style={{ flex: 1, minWidth: 0 }}>
+              <div style={{ fontSize: 13, fontWeight: 700, lineHeight: 1.2 }}>{c.t}</div>
+              <div style={{ fontSize: 10, color: "var(--fg-3)", fontStyle: "italic", fontFamily: "var(--font-latin)" }}>{c.en}</div>
+            </span>
+            {visited.includes(c.id) && c.id !== "home" && <span style={{ color: "#22c55e", fontSize: 12 }}>✓</span>}
+          </button>
+        ))}
+
+        <div className="sidebar-progress">
+          <div className="sidebar-progress-label">
+            <span>📚 學習進度</span>
+            <span>{visitedCount}/{totalChapters}</span>
+          </div>
+          <div className="sidebar-progress-bar">
+            <div className="sidebar-progress-fill" style={{ width: `${progress}%` }}></div>
+          </div>
+          <div style={{ fontSize: 10, color: "var(--fg-3)", marginTop: 6 }}>
+            {progress === 100 ? "🏆 全部完成！" : "繼續加油～"}
+          </div>
+        </div>
+      </aside>
+
+      <main className="content" ref={contentRef}>
+        {current === "home" ? (
+          <Home go={go}/>
+        ) : (
+          <div key={current} className="animate-fadeup">
+            <PageComp/>
+
+            {/* prev/next nav */}
+            <div style={{ display: "flex", justifyContent: "space-between", marginTop: 32, gap: 12, flexWrap: "wrap" }}>
+              {prev ? (
+                <button className="btn btn-ghost" onClick={() => go(prev.id)} style={{ flex: 1, minWidth: 200 }}>
+                  ← {prev.emoji} {prev.t}
+                </button>
+              ) : <div style={{ flex: 1 }}></div>}
+              {next ? (
+                <button className="btn btn-primary" onClick={() => go(next.id)} style={{ flex: 1, minWidth: 200, justifyContent: "flex-end" }}>
+                  {next.emoji} {next.t} →
+                </button>
+              ) : (
+                <button className="btn btn-primary" onClick={() => go("home")} style={{ flex: 1, minWidth: 200, justifyContent: "flex-end" }}>
+                  🏠 回到首頁
+                </button>
+              )}
+            </div>
+          </div>
+        )}
+      </main>
+    </div>
+  );
+}
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<App/>);
+</script>
+</body>
+</html>

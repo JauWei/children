@@ -1,0 +1,185 @@
+/* ==========================================================================
+   Sheepy Family Design System — colors & type tokens
+   Two palettes: A (light "trip-planner") and B (dark "family-home").
+   ========================================================================== */
+
+:root {
+  /* ---------- Palette A — light / utility ---------- */
+  --bg-1:        #f9fafb;
+  --bg-2:        #ffffff;
+  --bg-3:        #f3f4f6;
+
+  --fg-1:        #111827;   /* primary ink */
+  --fg-2:        #374151;
+  --fg-3:        #6b7280;   /* muted */
+  --fg-4:        #9ca3af;   /* very muted */
+
+  --border-1:    #e5e7eb;
+  --border-2:    #d1d5db;
+
+  /* Brand */
+  --indigo:      #6366f1;
+  --indigo-600:  #4f46e5;
+  --indigo-700:  #4338ca;
+  --violet:      #8b5cf6;
+  --teal:        #14b8a6;
+  --brand-grad:  linear-gradient(to right, var(--indigo), var(--violet), var(--teal));
+
+  /* Status */
+  --success:     #22c55e;
+  --warning:     #f59e0b;
+  --danger:      #ef4444;
+  --info:        #3b82f6;
+
+  /* Event-type accents (fg + tinted bg) */
+  --type-flight-fg:    #3b82f6;  --type-flight-bg:    #eff6ff;
+  --type-hotel-fg:     #8b5cf6;  --type-hotel-bg:     #f5f3ff;
+  --type-meal-fg:      #f97316;  --type-meal-bg:      #fff7ed;
+  --type-activity-fg:  #22c55e;  --type-activity-bg:  #f0fdf4;
+  --type-transport-fg: #64748b;  --type-transport-bg: #f8fafc;
+  --type-shopping-fg:  #ec4899;  --type-shopping-bg:  #fdf2f8;
+  --type-other-fg:     #14b8a6;  --type-other-bg:     #f0fdfa;
+
+  /* ---------- Palette B — dark / launcher ---------- */
+  --dark-bg:        #1a1a2e;
+  --dark-surface:   #2a2a40;
+  --dark-surface-2: #3a3a55;
+  --dark-fg:        #ffffff;
+  --dark-glass:     rgba(255, 255, 255, 0.15);
+  --dark-glass-2:   rgba(255, 255, 255, 0.06);
+  --dark-border:    rgba(255, 255, 255, 0.10);
+
+  --mascot-purple:  #6c63ff;
+  --mascot-purple-600: #5a52d5;
+  --mascot-sky:     #a8d8ea;
+  --mascot-mint:    #b6e0d4;
+
+  --gold:           #ffd700;
+  --pinned:         #ffc107;
+
+  /* ---------- Type ---------- */
+  --font-cjk: 'Noto Sans TC', 'Microsoft JhengHei', 'PingFang TC', 'Segoe UI', system-ui, sans-serif;
+  --font-latin: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, 'Menlo', 'Consolas', monospace;
+  --font-sans: var(--font-cjk);
+
+  --fs-xs:   12px;
+  --fs-sm:   13px;
+  --fs-base: 14px;
+  --fs-md:   16px;
+  --fs-lg:   18px;
+  --fs-xl:   20px;
+  --fs-2xl:  24px;
+  --fs-3xl:  30px;
+  --fs-4xl:  40px;
+  --fs-5xl:  48px;
+
+  --fw-regular: 400;
+  --fw-medium:  500;
+  --fw-semi:    600;
+  --fw-bold:    700;
+
+  --lh-tight:  1.2;
+  --lh-snug:   1.4;
+  --lh-normal: 1.6;
+
+  /* ---------- Spacing (Tailwind 4-px scale) ---------- */
+  --sp-0:  0px;
+  --sp-1:  4px;
+  --sp-2:  8px;
+  --sp-3:  12px;
+  --sp-4:  16px;
+  --sp-5:  20px;
+  --sp-6:  24px;
+  --sp-8:  32px;
+  --sp-10: 40px;
+  --sp-12: 48px;
+  --sp-16: 64px;
+
+  /* ---------- Radii ---------- */
+  --r-sm:   4px;
+  --r-md:   8px;
+  --r-lg:   12px;
+  --r-xl:   16px;
+  --r-2xl:  20px;
+  --r-full: 9999px;
+
+  /* ---------- Shadows ---------- */
+  --sh-card:        0 1px 2px 0 rgba(0,0,0,0.05);
+  --sh-card-hover:  0 4px 12px rgba(0,0,0,0.08);
+  --sh-modal-light: 0 25px 50px -12px rgba(0,0,0,0.25);
+  --sh-modal-dark:  0 12px 40px rgba(0,0,0,0.5);
+  --sh-drawer:      -4px 0 24px rgba(0,0,0,0.15);
+  --sh-glow:        0 0 16px rgba(108,99,255,0.5), 0 0 32px rgba(108,99,255,0.2);
+  --sh-gold:        0 0 12px rgba(255,215,0,0.4);
+
+  /* ---------- Motion ---------- */
+  --ease:           cubic-bezier(0.4, 0, 0.2, 1);
+  --dur-fast:       150ms;
+  --dur-base:       250ms;
+  --dur-slow:       350ms;
+}
+
+/* ==========================================================================
+   Semantic helpers — use these in HTML so designs survive token changes.
+   ========================================================================== */
+
+.h1 {
+  font-family: var(--font-sans);
+  font-size: var(--fs-4xl);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-tight);
+  letter-spacing: 0.04em;
+}
+.h2 {
+  font-family: var(--font-sans);
+  font-size: var(--fs-2xl);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-snug);
+}
+.h3 {
+  font-family: var(--font-sans);
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-snug);
+}
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semi);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fg-3);
+}
+.body {
+  font-family: var(--font-sans);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-normal);
+  color: var(--fg-1);
+}
+.body-sm {
+  font-family: var(--font-sans);
+  font-size: var(--fs-sm);
+  line-height: var(--lh-normal);
+  color: var(--fg-2);
+}
+.muted {
+  color: var(--fg-3);
+  font-size: var(--fs-xs);
+}
+.code {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  background: var(--bg-3);
+  padding: 2px 6px;
+  border-radius: var(--r-sm);
+}
+
+/* Brand gradient text */
+.grad-ink {
+  background: var(--brand-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
