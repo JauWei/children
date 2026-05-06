@@ -336,15 +336,15 @@ const Ch6 = () => (
     <div className="lesson-eyebrow"><span className="dot"></span>第六章 · Chapter 6</div>
     <h1 className="lesson-title">🏢 公司與股票</h1>
     <div className="lesson-title-en">Companies & Stocks</div>
-    <p className="lesson-intro">想像你開了一家「<strong>Snoopy起司店</strong>」，生意太好需要更多錢買新機器...怎麼辦？答案就是「<strong>股票</strong>」！</p>
+    <p className="lesson-intro">想像你開了一家「<strong>Snoopy餅乾店</strong>」，生意太好需要更多錢買新機器...怎麼辦？答案就是「<strong>股票</strong>」！</p>
 
-    <Illus name="ch6-hero" icon="🏢🥧" desc="Snoopy起司店被切成 100 片像派一樣，每位股東拿著自己的那一片"/>
+    <Illus name="ch6-hero" icon="🏢🥧" desc="Snoopy餅乾店被切成 100 片像派一樣，每位股東拿著自己的那一片"/>
 
     <div className="block story">
-      <h2>📖 故事：Snoopy起司店要長大</h2>
+      <h2>📖 故事：Snoopy餅乾店要長大</h2>
       <div className="bubble-row">
         <div className="bubble-avatar sheep"><Sheep size={56}/></div>
-        <div className="bubble sheep">我的起司超好吃！但只有一個小店，買不起大機器做更多～</div>
+        <div className="bubble sheep">我的餅乾超好吃！但只有一個小店，買不起大機器做更多～</div>
       </div>
       <div className="bubble-row reverse">
         <div className="bubble-avatar fox"><Fox size={56}/></div>

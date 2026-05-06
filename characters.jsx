@@ -37,7 +37,7 @@ const CharImg = ({ src, size, alt }) => (
 
 const Sheep = ({ size = 80, mood = "happy" }) => {
   const src = useCharImg("sheep");
-  if (src) return <CharImg src={src} size={size} alt="老師"/>;
+  if (src) return <CharImg src={src} size={size} alt="Snoopy老師"/>;
   return (
     <svg viewBox="0 0 100 100" width={size} height={size} style={{ display: "block" }}>
       <g>
@@ -72,7 +72,7 @@ const Sheep = ({ size = 80, mood = "happy" }) => {
 
 const Rabbit = ({ size = 80 }) => {
   const src = useCharImg("rabbit");
-  if (src) return <CharImg src={src} size={size} alt="兔兔"/>;
+  if (src) return <CharImg src={src} size={size} alt="龍龍"/>;
   return (
     <svg viewBox="0 0 100 100" width={size} height={size} style={{ display: "block" }}>
       <ellipse cx="40" cy="22" rx="5" ry="16" fill="#fff" stroke="#e5b8c8" strokeWidth="2"/>
@@ -94,7 +94,7 @@ const Rabbit = ({ size = 80 }) => {
 
 const Panda = ({ size = 80 }) => {
   const src = useCharImg("panda");
-  if (src) return <CharImg src={src} size={size} alt="熊貓"/>;
+  if (src) return <CharImg src={src} size={size} alt="帕洽狗"/>;
   return (
     <svg viewBox="0 0 100 100" width={size} height={size} style={{ display: "block" }}>
       <circle cx="32" cy="30" r="9" fill="#1a1a2e"/>
@@ -114,7 +114,7 @@ const Panda = ({ size = 80 }) => {
 
 const Fox = ({ size = 80 }) => {
   const src = useCharImg("fox");
-  if (src) return <CharImg src={src} size={size} alt="狐狐"/>;
+  if (src) return <CharImg src={src} size={size} alt="大耳狗"/>;
   return (
     <svg viewBox="0 0 100 100" width={size} height={size} style={{ display: "block" }}>
       <path d="M30 35 L25 18 L42 28 Z" fill="#f97316" stroke="#c2410c" strokeWidth="1.5"/>
@@ -135,7 +135,7 @@ const Fox = ({ size = 80 }) => {
 
 const Lizard = ({ size = 80 }) => {
   const src = useCharImg("lizard");
-  if (src) return <CharImg src={src} size={size} alt="蜥蜴"/>;
+  if (src) return <CharImg src={src} size={size} alt="企企"/>;
   return (
     <svg viewBox="0 0 100 100" width={size} height={size} style={{ display: "block" }}>
       <ellipse cx="55" cy="62" rx="30" ry="18" fill="#b6e0d4" stroke="#2a4a5a" strokeWidth="2"/>
