@@ -58,7 +58,7 @@ const Home = ({ go }) => {
             兒童<span style={{ background: "var(--brand-grad)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>投資理財</span>樂園
           </h1>
           <div style={{ fontSize: 18, color: "var(--fg-2)", fontWeight: 500, marginBottom: 4 }}>
-            跟著小羊老師和動物同學們，一起學會錢的祕密！
+            跟著Snoopy老師和動物同學們，一起學會錢的祕密！
           </div>
           <div style={{ fontSize: 14, color: "var(--fg-3)", fontFamily: "var(--font-latin)", fontStyle: "italic", marginBottom: 20 }}>
             Learn money, economics & investing — with Sheep Sensei 🐑
@@ -74,11 +74,11 @@ const Home = ({ go }) => {
       {/* characters lineup */}
       <div style={{ display: "flex", gap: 20, justifyContent: "center", marginTop: 32, flexWrap: "wrap" }}>
         {[
-          { C: Sheep, name: "小羊老師", role: "教你經濟學", color: "#f5f3ff" },
-          { C: Rabbit, name: "兔兔", role: "問問題的同學", color: "#ffeef4" },
-          { C: Panda, name: "熊貓", role: "愛存錢", color: "#f3f4f6" },
-          { C: Fox, name: "狐狐", role: "賣檸檬汁", color: "#fff7ed" },
-          { C: Lizard, name: "蜥蜴 Tokage", role: "悄悄話夥伴", color: "#ecfeff" },
+          { C: Sheep, name: "Snoopy老師", role: "教你經濟學", color: "#f5f3ff" },
+          { C: Rabbit, name: "龍龍", role: "問問題的同學", color: "#ffeef4" },
+          { C: Panda, name: "帕洽狗", role: "愛存錢", color: "#f3f4f6" },
+          { C: Fox, name: "大耳狗", role: "賣檸檬汁", color: "#fff7ed" },
+          { C: Lizard, name: "企企", role: "悄悄話夥伴", color: "#ecfeff" },
         ].map((c, i) => (
           <div key={i} style={{ textAlign: "center", animation: `fadeUp 0.4s ease-out ${i * 0.1}s backwards` }}>
             <div style={{ background: c.color, padding: 8, borderRadius: 16, boxShadow: "0 4px 12px rgba(0,0,0,0.06)" }}>
@@ -124,16 +124,16 @@ const Ch1 = () => (
     <div className="lesson-title-en">What is Money?</div>
     <p className="lesson-intro">很久很久以前，世界上其實沒有「錢」。大家想要東西，就用<strong>交換</strong>的～<span style={{ display: "block", fontSize: 14, color: "var(--fg-3)", fontStyle: "italic", marginTop: 4, fontFamily: "var(--font-latin)" }}>Long ago, there was no money — people just traded things.</span></p>
 
-    <Illus name="ch1-hero" icon="🥕↔️🧀" desc="兔兔拿胡蘿蔔想跟小羊換起司的場景插畫"/>
+    <Illus name="ch1-hero" icon="🥕↔️🧀" desc="龍龍拿胡蘿蔔想跟Snoopy換起司的場景插畫"/>
 
     <div className="block story">
       <h2>🥕 故事：以物易物 <span className="en">Barter Story</span></h2>
       <div className="bubble-row">
-        <div className="bubble-avatar rabbit"><Rabbit size={56}/><span className="bubble-avatar-name">兔兔</span></div>
+        <div className="bubble-avatar rabbit"><Rabbit size={56}/><span className="bubble-avatar-name">龍龍</span></div>
         <div className="bubble rabbit">我有 10 根胡蘿蔔，想換一塊起司～<span className="en">I have carrots, I want cheese!</span></div>
       </div>
       <div className="bubble-row reverse">
-        <div className="bubble-avatar sheep"><Sheep size={56}/><span className="bubble-avatar-name">小羊</span></div>
+        <div className="bubble-avatar sheep"><Sheep size={56}/><span className="bubble-avatar-name">Snoopy</span></div>
         <div className="bubble sheep">我不想要胡蘿蔔耶...我想要蘋果 🍎<span className="en">But I don't want carrots, I want apples.</span></div>
       </div>
       <div className="bubble-row">
@@ -198,12 +198,12 @@ const Ch2 = () => (
         </div>
       </div>
       <div className="bubble-row" style={{ marginTop: 16 }}>
-        <div className="bubble-avatar panda"><Panda size={56}/><span className="bubble-avatar-name">熊貓</span></div>
-        <div className="bubble panda">那竹子呢？我每天都要吃...是需要還是想要？😋</div>
+        <div className="bubble-avatar panda"><Panda size={56}/><span className="bubble-avatar-name">帕洽狗</span></div>
+        <div className="bubble panda">那香蕉口味冰淇淋呢？我每天都好想吃...是需要還是想要？🍦</div>
       </div>
       <div className="bubble-row reverse">
         <div className="bubble-avatar sheep"><Sheep size={56} mood="teach"/></div>
-        <div className="bubble sheep">熊貓的話，竹子是需要 😄 但人類的話，<strong>巧克力</strong>就是想要喔～</div>
+        <div className="bubble sheep">哈哈，再愛吃也是想要喔😆 想想看：少了它你會不會生病？不會吧～需要是像<strong>飯、水、睡覺</strong>這種真的少了不行的東西。</div>
       </div>
     </div>
 
@@ -218,7 +218,7 @@ const Ch3 = () => (
     <div className="lesson-title-en">Saving Money</div>
     <p className="lesson-intro">把零用錢全部花光，等到真的想買大東西就買不起了。學會<strong>存錢</strong>，未來的你會謝謝現在的你！</p>
 
-    <Illus name="ch3-hero" icon="🐷💰" desc="熊貓投硬幣到撲滿的可愛插畫"/>
+    <Illus name="ch3-hero" icon="🐷💰" desc="帕洽狗投硬幣到撲滿的可愛插畫"/>
 
     <div className="block tip">
       <h2>📦 50 / 30 / 20 法則 <span className="en">The 50/30/20 Rule</span></h2>
@@ -336,12 +336,12 @@ const Ch6 = () => (
     <div className="lesson-eyebrow"><span className="dot"></span>第六章 · Chapter 6</div>
     <h1 className="lesson-title">🏢 公司與股票</h1>
     <div className="lesson-title-en">Companies & Stocks</div>
-    <p className="lesson-intro">想像你開了一家「<strong>小羊起司店</strong>」，生意太好需要更多錢買新機器...怎麼辦？答案就是「<strong>股票</strong>」！</p>
+    <p className="lesson-intro">想像你開了一家「<strong>Snoopy起司店</strong>」，生意太好需要更多錢買新機器...怎麼辦？答案就是「<strong>股票</strong>」！</p>
 
-    <Illus name="ch6-hero" icon="🏢🥧" desc="小羊起司店被切成 100 片像派一樣，每位股東拿著自己的那一片"/>
+    <Illus name="ch6-hero" icon="🏢🥧" desc="Snoopy起司店被切成 100 片像派一樣，每位股東拿著自己的那一片"/>
 
     <div className="block story">
-      <h2>📖 故事：小羊起司店要長大</h2>
+      <h2>📖 故事：Snoopy起司店要長大</h2>
       <div className="bubble-row">
         <div className="bubble-avatar sheep"><Sheep size={56}/></div>
         <div className="bubble sheep">我的起司超好吃！但只有一個小店，買不起大機器做更多～</div>

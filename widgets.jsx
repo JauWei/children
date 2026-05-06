@@ -76,7 +76,7 @@ const PiggyCompound = () => {
       </div>
 
       <div className="bubble-row" style={{ marginTop: 20 }}>
-        <div className="bubble-avatar sheep"><Sheep size={56} mood="teach"/><span className="bubble-avatar-name">小羊老師</span></div>
+        <div className="bubble-avatar sheep"><Sheep size={56} mood="teach"/><span className="bubble-avatar-name">Snoopy老師</span></div>
         <div className="bubble sheep">
           <strong>越早開始，雪球越大！</strong>同樣存 $100，存 5 年只賺一點點，存 30 年就賺好多好多～這就是時間的魔法 ✨
           <span className="en">The earlier you start, the bigger the snowball. Time is magic!</span>
@@ -219,7 +219,7 @@ const TimeMachine = () => {
       </div>
 
       <div className="bubble-row" style={{ marginTop: 20 }}>
-        <div className="bubble-avatar lizard"><Lizard size={56}/><span className="bubble-avatar-name">蜥蜴 Tokage</span></div>
+        <div className="bubble-avatar lizard"><Lizard size={56}/><span className="bubble-avatar-name">企企</span></div>
         <div className="bubble lizard">
           所以放著錢不動，其實會慢慢變「薄」～這就是為什麼大人會把錢拿去投資，希望錢長大得比通膨快！(´･ω･`)
           <span className="en">Cash sitting still actually loses value over time.</span>

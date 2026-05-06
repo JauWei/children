@@ -230,7 +230,7 @@ const StockSim = () => {
       </div>
 
       <div className="bubble-row" style={{ marginTop: 20 }}>
-        <div className="bubble-avatar sheep"><Sheep size={56} mood="teach"/><span className="bubble-avatar-name">小羊老師</span></div>
+        <div className="bubble-avatar sheep"><Sheep size={56} mood="teach"/><span className="bubble-avatar-name">Snoopy老師</span></div>
         <div className="bubble sheep">
           <strong>記得：這是模擬！真實的股票市場更複雜也有真正的風險。</strong>不要把所有錢放一檔（叫做「分散投資」），也不要追漲殺跌。慢慢學～
           <span className="en">Don't put all eggs in one basket. Diversify and stay calm!</span>
